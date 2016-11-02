@@ -1,0 +1,64 @@
+<div class="container">
+
+  <div class="row">
+    <a href="/new_movie" class="btn btn-primary">Add New Movie</a>
+  </div>
+  <%= @allmovies.inspect %>
+  <div class="row">
+
+    <table class="table">
+      <tr>
+        <th>
+          Image
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Year
+        </th>
+        <th>
+          Duration
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Director ID
+        </th>
+      </tr>
+
+      <% @allmovies.each do |movie| %>
+      <tr>
+        <td>
+          <img src="<%= movie.image_url %>" height=70 />
+        </td>
+        <td>
+          <%= movie.title %>
+        </td>
+        <td>
+          <%= movie.year %>
+        </td>
+        <td>
+          <%= movie.duration %> minutes
+        </td>
+        <td>
+          <%= movie.description[0..25] %>
+          <% if movie.description.length > 25 %>
+            ...
+          <% end %>
+        </td>
+        <td>
+          <%= movie.director_id %>
+        </td>
+        <td>
+          <a href="/movies/<%= movie.id %>">Profile</a>
+          <a href="/movies/<%= movie.id %>/edit">Edit</a>
+          <a href="/movies/<%= movie.id %>/delete">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+
+      </table>
+    </div>
+</div>

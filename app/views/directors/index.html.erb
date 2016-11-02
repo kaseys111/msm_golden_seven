@@ -1,7 +1,9 @@
 <div class="container">
+
   <div class="row">
     <a href="/new_director" class="btn btn-primary">Add New Director</a>
   </div>
+
   <div class="row">
 
     <table class="table">
@@ -15,6 +17,9 @@
         <th>
           Name
         </th>
+        <th>
+          Bio
+        </th>
       </tr>
 
       <% @alldirectors.each do |director| %>
@@ -27,6 +32,12 @@
         </td>
         <td>
           <%= director.name %>
+        </td>
+        <td>
+          <%= director.bio[0..25] %>
+          <% if director.bio.length >25 %>
+            ...
+          <% end %>
         </td>
         <td>
           <a href="/directors/<%= director.id %>">Profile</a>
