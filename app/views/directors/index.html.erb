@@ -1,0 +1,19 @@
+<div class="container">
+  <% @alldirectors.each do |director| %>
+    <div class="row">
+      <table>
+        <tr>
+          <td>
+            <img src="<%= director.image_url %>" height=70 />
+          </td>
+          <td>
+            <%= director.name %>
+          </td>
+          <td>
+            Profile Edit Delete
+          </td>
+        </tr>
+      </table>
+    </div>
+    <% end %>
+</div>

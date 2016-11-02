@@ -1,6 +1,7 @@
-class DirectorsController < ApllicationController
+class DirectorsController < ApplicationController
 
   def index
+    @alldirectors = Director.all
   end
 
   def profile
