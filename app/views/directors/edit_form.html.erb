@@ -1,6 +1,25 @@
 <div class="container">
   <div class="row">
-    <h1>HI</h1>
+    <h3>Director #<%= @director.id %></h3>
+  </div>
+
+  <div class="row">
+    <form action="/directors/<%= @director.id %>/updated">
+
+      <label for="dob">DOB</label>
+      <input type="text" id="dob" name="dob" value="<%= @director.dob %>">
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" value="<%= @director.name %>">
+
+      <label for="bio">Bio</label>
+      <input type="text" id="bio" name="bio" value="<%= @director.bio %>">
+
+      <label for="image_url">Image URL</label>
+      <input type="text" id="image_url" name="image_url" value="<%= @director.image_url %>">
+
+      <button>Update Director</button>
+    </form>
   </div>
 
 </div>
