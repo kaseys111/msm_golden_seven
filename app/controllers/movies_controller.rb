@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
 
   # create
   def new_form
+    @alldirectors = Director.all
   end
 
   def add_movie
@@ -19,16 +20,25 @@ class MoviesController < ApplicationController
     @movie.year = params[:year]
     @movie.duration = params[:duration]
     @movie.description = params[:description]
-    @movie.director_id = params[:director_id]
+    @movie.director_id = params[:director]
     @movie.image_url = params[:image_url]
 
     @movie.save
+
     redirect_to("http://localhost:3000/movies/" + @movie.id.to_s)
   end
 
   # update
   def edit_form
     @movie = Movie.find(params[:id])
+    @alldirectors = Director.all
+
+    if @movie.director_id == nil
+      @director_name = "-"
+    else
+      @director_name = Director.find(@movie.director_id).name
+
+    end
   end
 
   def update_movie
@@ -38,15 +48,18 @@ class MoviesController < ApplicationController
     @movie.year = params[:year]
     @movie.duration = params[:duration]
     @movie.description = params[:description]
-    @movie.director_id = params[:director_id]
     @movie.image_url = params[:image_url]
+
+    if
+      params[:director_id] == "-"
+      @movie.director_id = nil
+    else
+      @movie.director_id = params[:director]
+    end
 
     @movie.save
 
-    @director = Director.find(params[@movie.director_id])
-
     redirect_to("http://localhost:3000/movies/" + @movie.id.to_s)
-
   end
 
   # delete
