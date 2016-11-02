@@ -5,6 +5,7 @@ class DirectorsController < ApplicationController
   end
 
   def profile
+    @director = Director.find(params[:id])
   end
 
   def new_form

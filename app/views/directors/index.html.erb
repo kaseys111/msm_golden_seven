@@ -1,19 +1,35 @@
 <div class="container">
-  <% @alldirectors.each do |director| %>
     <div class="row">
       <table>
+        <tr>
+          <th>
+            Image
+          </th>
+          <th>
+            DOB
+          </th>
+          <th>
+            Name
+          </th>
+        </tr>
+<% @alldirectors.each do |director| %>
         <tr>
           <td>
             <img src="<%= director.image_url %>" height=70 />
           </td>
           <td>
+            <%= director.dob %>
+          </td>
+          <td>
             <%= director.name %>
           </td>
           <td>
-            Profile Edit Delete
+            <a href="/directors/<%= director.id %>">Profile</a>
+            <a href="/directors/<%= director.id %>/edit">Edit</a>
+            <a href="/directors/<%= director.id %>/delete">Delete</a>
           </td>
         </tr>
+<% end %>
       </table>
     </div>
-    <% end %>
 </div>
