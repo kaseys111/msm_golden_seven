@@ -3,7 +3,6 @@
   <div class="row">
     <a href="/new_movie" class="btn btn-primary">Add New Movie</a>
   </div>
-  <%= @allmovies.inspect %>
   <div class="row">
 
     <table class="table">
@@ -43,9 +42,13 @@
           <%= movie.duration %> minutes
         </td>
         <td>
-          <%= movie.description[0..25] %>
-          <% if movie.description.length > 25 %>
-            ...
+          <% if movie.description != nil && movie.description != "" %>
+            <%= movie.description[0..25] %>
+            <% if movie.description.length > 25 %>
+              ...
+            <% end %>
+          <% else %>
+            No description
           <% end %>
         </td>
         <td>

@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row">
-    <a href="/new_director" class="btn btn-primary">Add New Director</a>
+    <a href="/new_actor" class="btn btn-primary">Add New Actor</a>
   </div>
 
   <div class="row">
@@ -22,21 +22,21 @@
         </th>
       </tr>
 
-      <% @alldirectors.each do |director| %>
+      <% @allactors.each do |actor| %>
       <tr>
         <td>
-          <img src="<%= director.image_url %>" height=70 />
+          <img src="<%= actor.image_url %>" height=70 />
         </td>
         <td>
-          <%= director.dob %>
+          <%= actor.dob %>
         </td>
         <td>
-          <%= director.name %>
+          <%= actor.name %>
         </td>
         <td>
-          <% if director.bio != nil && director.bio != "" %>
-            <%= director.bio[0..25] %>
-            <% if director.bio.length >25 %>
+          <% if actor.bio != nil && actor.bio != "" %>
+            <%= actor.bio[0..25] %>
+            <% if actor.bio.length >25 %>
               ...
             <% end %>
           <% else %>
@@ -44,9 +44,9 @@
           <% end %>
         </td>
         <td>
-          <a href="/directors/<%= director.id %>">Profile</a>
-          <a href="/directors/<%= director.id %>/edit">Edit</a>
-          <a href="/directors/<%= director.id %>/delete">Delete</a>
+          <a href="/actors/<%= actor.id %>">Profile</a>
+          <a href="/actors/<%= actor.id %>/edit">Edit</a>
+          <a href="/actors/<%= actor.id %>/delete">Delete</a>
         </td>
       </tr>
       <% end %>

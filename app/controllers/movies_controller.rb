@@ -33,12 +33,6 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @alldirectors = Director.all
 
-    if @movie.director_id == nil
-      @director_name = "-"
-    else
-      @director_name = Director.find(@movie.director_id).name
-
-    end
   end
 
   def update_movie
@@ -51,7 +45,7 @@ class MoviesController < ApplicationController
     @movie.image_url = params[:image_url]
 
     if
-      params[:director_id] == "-"
+      params[:director] == "-"
       @movie.director_id = nil
     else
       @movie.director_id = params[:director]

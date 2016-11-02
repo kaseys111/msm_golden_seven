@@ -30,7 +30,17 @@
       <div class="form-group">
         <label for="director">Director</label>
         <select class="form-control" id="director" name="director">
-          <option selected><%= @director_name %></option>
+
+          <% if @movie.director_id == nil || @movie.director_id == 0 %>
+            <option selected>-</option>
+
+          <% else %>
+            <option selected value="<%= @movie.director_id %>">
+              <%= @movie.director_id %>
+            </option>
+
+          <% end %>
+
           <% @alldirectors.each do |director| %>
             <option value="<%= director.id %>">
               <%= director.name %>
@@ -39,7 +49,7 @@
         </select>
       </div>
 
-      <button>Update Director</button>
+      <button>Update Movie</button>
     </form>
   </div>
 
